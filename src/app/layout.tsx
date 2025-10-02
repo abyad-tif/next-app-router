@@ -28,8 +28,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Sidenav></Sidenav>
-        {children}
+        <div className="flex">
+          <Sidenav></Sidenav>
+          <div className="static inline-block top-0 z-40 h-screen p-3">
+            {children}
+          </div>
+        </div>
       </body>
     </html>
   );
