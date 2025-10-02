@@ -1,13 +1,21 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Home() {
+  const pathname = usePathname();
   return (
     <>
       <div className="static inline-block top-0 left-0 z-40 w-64 h-screen">
         <div className="overflow-y-auto py-5 px-3 h-full bg-white border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700">
           <ul className="space-y-2">
             <Link href={"/about"}>
-              <li className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group cursor-pointer">
+              <li
+                className={`flex items-center mb-2 p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group cursor-pointer ${
+                  pathname === "/about" ? "bg-gray-700" : ""
+                }`}
+              >
                 <svg
                   aria-hidden="true"
                   className="w-6 h-6 text-gray-400 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -89,7 +97,11 @@ export default function Home() {
           </ul>
           <ul className="pt-5 mt-5 space-y-2 border-t border-gray-200 dark:border-gray-700">
             <Link href={"/features"}>
-              <li className="cursor-pointer flex items-center p-2 text-base font-normal text-gray-900 rounded-lg transition duration-75 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group">
+              <li
+                className={`cursor-pointer flex items-center mb-2 p-2 text-base font-normal text-gray-900 rounded-lg transition duration-75 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group ${
+                  pathname === "/features" ? "bg-gray-700" : ""
+                }`}
+              >
                 <svg
                   aria-hidden="true"
                   className="flex-shrink-0 w-6 h-6 text-gray-400 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -103,7 +115,11 @@ export default function Home() {
               </li>
             </Link>
             <Link href={"/products"}>
-              <li className="cursor-pointer flex items-center p-2 text-base font-normal text-gray-900 rounded-lg transition duration-75 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group">
+              <li
+                className={`cursor-pointer flex items-center mb-2 p-2 text-base font-normal text-gray-900 rounded-lg transition duration-75 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group ${
+                  pathname === "/products" ? "bg-gray-700" : ""
+                }`}
+              >
                 <svg
                   aria-hidden="true"
                   className="flex-shrink-0 w-6 h-6 text-gray-400 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
