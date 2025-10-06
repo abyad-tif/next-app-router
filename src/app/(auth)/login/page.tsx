@@ -1,4 +1,17 @@
+"use client";
+
 export default function LoginPage() {
+  const handleLogin = (e: any) => {
+    e.preventDefault();
+    fetch("/api/auth/login", {
+      method: "POST",
+      body: JSON.stringify({
+        email: e.currentTarget.email.value,
+        password: e.currentTarget.password.value,
+      }),
+    });
+  };
+
   return (
     <div className="flex-col justify-center items-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -13,7 +26,7 @@ export default function LoginPage() {
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form action="#" method="POST" className="space-y-6">
+        <form className="space-y-6" onSubmit={(e) => handleLogin(e)}>
           <div>
             <label
               htmlFor="email"
