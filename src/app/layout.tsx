@@ -47,8 +47,9 @@ export default function RootLayout({
             className={`${!disableNavbar.includes(pathname) && enableClass} ${
               !disableNavbar.includes(pathname) && classname
             }`}
-          ></div>
-          {children}
+          >
+            {children}
+          </div>
         </div>
       </body>
     </html>
